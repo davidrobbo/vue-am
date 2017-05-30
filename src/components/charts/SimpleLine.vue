@@ -15,17 +15,20 @@
             </div>
         </div>
 
-        <div :class="colSpan">
-            <button class="handle">handle</button>
+        <div :class="[isFullScreen ? fullScreen : '', colSpan]">
             <div :id="outerId" :class="outerClasses" style="padding: 40px; height: 500px; width: 100%; border: 2px solid;">
                 <div :id="chartId" :class="chartClasses" style="height: 100%; width: 100%;">
 
                 </div>
-                <div class="col-btns">
+                <div class="relative">
+                  <div class="col-btns">
                     <button @click="col(3)">3</button>
                     <button @click="col(6)">6</button>
                     <button @click="col(9)">9</button>
                     <button @click="col(12)">12</button>
+                    <button @click="isFullScreen = !isFullScreen">FULL</button>
+                    <button class="handle">handle</button>
+                  </div>
                 </div>
             </div>
         </div>
@@ -145,7 +148,7 @@
         mounted() {
         },
         created(){
-        }     
+        }
     }
 </script>
 <style>
@@ -168,6 +171,28 @@
     padding: 0 !important;
 }
 .width-anim {
-    transition: all 0.5s;
+    /*transition: all 0.5s;*/
 }
+.full-screen {
+  background-color: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+.relative {
+  position: relative;
+}
+
+.full-screen .chart-outer {
+  background-color: #fff;
+  margin: 50px;
+}
+
 </style>

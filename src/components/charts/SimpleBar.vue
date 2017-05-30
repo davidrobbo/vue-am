@@ -14,17 +14,20 @@
                 </div>
             </div>
         </div>
-        <div :class="colSpan">
-            <button class="handle">handle</button>
+        <div :class="[isFullScreen ? fullScreen : '', colSpan]">
             <div :id="outerId" :class="outerClasses" style="height: 500px; width: 100%; border: 2px solid;">
                 <div :id="chartId" :class="chartClasses" style="height: 100%; width: 100%;">
 
                 </div>
-                <div class="col-btns">
-                    <button @click="col(3)">3</button>
-                    <button @click="col(6)">6</button>
-                    <button @click="col(9)">9</button>
-                    <button @click="col(12)">12</button>
+                <div class="relative">
+                  <div class="col-btns">
+                      <button @click="col(3)">3</button>
+                      <button @click="col(6)">6</button>
+                      <button @click="col(9)">9</button>
+                      <button @click="col(12)">12</button>
+                      <button @click="isFullScreen = !isFullScreen">FULL</button>
+                      <button class="handle">handle</button>
+                  </div>
                 </div>
             </div>
         </div>
@@ -100,7 +103,7 @@
         mounted() {
         },
         created(){
-        }     
+        }
     }
 </script>
 <style>

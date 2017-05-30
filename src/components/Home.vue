@@ -22,6 +22,22 @@
         <drag :options="{ ghostClass: 'ghost', handle: '.handle' }" @start="drag=true" @end="drag=false" >
           <bar :isTest="true"></bar>
           <myline :isTest="true"></myline>
+          <bar :isTest="true"></bar>
+          <myline :isTest="true"></myline>
+          <bar :isTest="true"></bar>
+          <myline :isTest="true"></myline>
+          <bar :isTest="true"></bar>
+          <myline :isTest="true"></myline>
+          <bar :isTest="true"></bar>
+          <myline :isTest="true"></myline>
+          <bar :isTest="true"></bar>
+          <myline :isTest="true"></myline>
+          <bar :isTest="true"></bar>
+          <myline :isTest="true"></myline>
+          <bar :isTest="true"></bar>
+          <myline :isTest="true"></myline>
+          <bar :isTest="true"></bar>
+          <myline :isTest="true"></myline>
         </drag>
       </div>
     </div>

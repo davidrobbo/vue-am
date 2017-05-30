@@ -6,7 +6,8 @@ export default {
     data() {
         return {
             testData: TEST_DATA[this.$options.name],
-            cols: 6
+            cols: 6,
+            isFullScreen: false
         }
     },
     computed: {
@@ -17,13 +18,16 @@ export default {
             return "chart-" + this._uid
         },
         outerClasses() {
-            return "chart-outer col-xs-3"
+            return "chart-outer"
         },
         chartClasses() {
             return "chart-inner"
         },
         colSpan() {
-            return `col-xs-${this.cols} width-anim`
+            return `col-sm-12 col-md-${this.cols} width-anim `
+        },
+        fullScreen() {
+          return 'full-screen'
         }
     },
     watch: {
@@ -56,6 +60,11 @@ export default {
         } else {
             this.init(this.testData)
         }
+
+        this.$nextTick( () => {
+          this.$forceUpdate()
+        })
+
         /*new ResizeSensor(document.getElementById(this.outerId), function(){
             console.log('content dimension changed');
         })*/
